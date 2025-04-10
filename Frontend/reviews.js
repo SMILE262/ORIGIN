@@ -8,11 +8,11 @@ async function addReview() {
     const reviewAuthor = document.getElementById("reviewAuthor").value;
 
     if (reviewText && reviewAuthor) {
-        const newReview = document.createElement("div");
-        newReview.classList.add("review-card");
-        newReview.innerHTML = `<p>"${reviewText}"</p><span>- ${reviewAuthor}</span>`;
+        // const newReview = document.createElement("div");
+        // newReview.classList.add("review-card");
+        // newReview.innerHTML = `<p>"${reviewText}"</p><span>- ${reviewAuthor}</span>`;
 
-        document.getElementById("reviews-container").appendChild(newReview);
+        // document.getElementById("reviews-container").appendChild(newReview);
 
         // Clear form fields
         document.getElementById("reviewText").value = "";
@@ -33,6 +33,8 @@ async function addReview() {
 
             if (response.ok) {
                 alert('Review added and email notification sent!');
+
+                fetchReviews(); // update reviews lists
             } else {
                 const errorMessage = await response.text();
                 alert('Failed to send email: ' + errorMessage);
@@ -48,3 +50,37 @@ async function addReview() {
 
 // Close the form initially
 document.getElementById("reviewForm").style.display = "none";
+
+async function fetchReviews() {
+    try {
+        const response = await fetch(`https://enlightened-sage-ltd.onrender.com/reviews`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await response.json();
+        console.log(data);
+        const container = document.getElementById("reviews-container")
+
+        container.innerHTML = ""; // clear existing reviews, not optional
+        data.forEach((review) => {
+            const reviewCard = document.createElement("div");
+            reviewCard.classList.add("review-card");
+
+            const reviewText = document.createElement("p");
+            reviewText.innerText = `${review.reviewText}`;
+
+            const reviewAuthor = document.createElement("span");
+            reviewAuthor.innerText = `- ${review.reviewAuthor}`;
+
+            reviewCard.appendChild(reviewText);
+            reviewCard.appendChild(reviewAuthor);
+            container.appendChild(reviewCard)
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+fetchReviews()
