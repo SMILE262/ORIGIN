@@ -40,7 +40,7 @@ if (popup && openPopupButtons && closePopupButton && loginForm) {
 
         // Send data to the backend
         try {
-            const response = await fetch('http://localhost:3000/submit', {
+            const response = await fetch('https://enlightened-sage-ltd.onrender.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
