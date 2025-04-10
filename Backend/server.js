@@ -34,7 +34,13 @@ const userSchema = new mongoose.Schema({
     location: String,
 });
 
+const reviewSchema = new mongoose.Schema({
+    reviewText: String,
+    reviewAuthor: String,
+})
+
 const User = mongoose.model('User', userSchema);
+const Review = mongoose.model('Review', reviewSchema)
 
 // Configure Nodemailer
 const transporter = nodemailer.createTransport({
@@ -93,12 +99,14 @@ app.post('/submit', async (req, res) => {
 app.post('/submit-review', async (req, res) => {
     try {
         const { reviewText, reviewAuthor } = req.body;
-        console.log('Received review:', { reviewText, reviewAuthor });
 
         if (!reviewText || !reviewAuthor) {
             return res.status(400).send('Review text and author are required');
         }
 
+        console.log('Received review:', { reviewText, reviewAuthor });
+        const newReview = new Review({ reviewText, reviewAuthor });
+        newReview.save()
         // Configure email options
         const mailOptions = {
             from: process.env.EMAIL_USER, // Replace with your email
@@ -118,11 +126,24 @@ app.post('/submit-review', async (req, res) => {
             console.log('Email sent:', info.response);
             res.status(200).send('Review submitted and email sent successfully!');
         });
+
+        res.status(200).send("Review submitted and email sent.")
     } catch (err) {
         console.error('Error handling review submission:', err);
         res.status(500).send('Error handling review submission');
     }
 });
+
+app.get('/reviews', async (req, res) => {
+    try {
+        const reviews = await Review.find();
+        res.status(200).json(reviews)
+    } catch (error) {
+        console.error('Error fetching reviews:', error);
+        res.status(500).send('Error fetching reviews');
+        console.log(error)
+    }
+})
 
 //Start the server
 
@@ -130,3 +151,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
