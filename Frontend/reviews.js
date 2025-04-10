@@ -23,7 +23,7 @@ async function addReview() {
 
         // Send review details to the backend for email notification
         try {
-            const response = await fetch('http://localhost:3000/submit-review', { // Add the full backend URL
+            const response = await fetch('https://enlightened-sage-ltd.onrender.com/submit-review', { // Add the full backend URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
