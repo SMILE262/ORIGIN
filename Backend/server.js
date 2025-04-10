@@ -1,15 +1,23 @@
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodemailer = require('nodemailer'); // Import Nodemailer
 require('dotenv').config(); // Load environment variables from .env file
+// updated code
+
 
 const app = express();
-app.use(bodyParser.json());
+
 app.use(cors({
     origin: '*', // Replace with your Netlify URL
+    credentials: true,
 }));
+
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "../Frontend")));
+
 
 // Connect to MongoDB
 mongoose
@@ -38,8 +46,8 @@ const transporter = nodemailer.createTransport({
 });
 
 // Default route
-app.get('/', (req, res) => {
-    res.send('Welcome to the Enlightened Sage API!');
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../Frontend/index.html"));
 });
 
 // Handle form submission
@@ -76,6 +84,7 @@ app.post('/submit', async (req, res) => {
         res.status(200).send('Data saved successfully and email sent!');
     } catch (err) {
         console.error('Error saving data:', err);
+        console.log(err)
         res.status(500).send('Error saving data');
     }
 });
@@ -84,8 +93,8 @@ app.post('/submit', async (req, res) => {
 app.post('/submit-review', async (req, res) => {
     try {
         const { reviewText, reviewAuthor } = req.body;
-        console.log('Received review:', { reviewText, reviewAuthor }); 
-        
+        console.log('Received review:', { reviewText, reviewAuthor });
+
         if (!reviewText || !reviewAuthor) {
             return res.status(400).send('Review text and author are required');
         }
@@ -121,7 +130,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-// Add this instead:
-// module.exports = app;
-
