@@ -1,0 +1,233 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: "Quintessential", serif;
+    font-weight:bolder;
+    font-style: normal;
+    color:#f8ffe5;
+}
+html,body{
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+body{
+    background-color:#f8ffe5;
+}
+@media screen and (max-width:750px){
+    html,body{
+        /* overflow-x:hidden; */
+        /* overflow-y: hidden; */
+        scroll-behavior: smooth;
+    }
+}
+@media screen and (max-width:560px){
+    body{
+        background-color: transparent;
+       background-image: url("assets/lotus-bg.jpg");
+       /* background-repeat: no-repeat; */
+       background-size:auto;
+    }
+}
+.content{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    gap:2.188rem;
+    overflow: auto;
+    background-size: cover;
+}
+@media screen and (max-width:750px){
+    .content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0rem;
+        
+    }
+}
+.items{
+    height: 28rem;
+    width:300px;
+    text-align: center;
+    background-color: #018163;
+}
+.parent{
+    box-shadow:5px 5px 10px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    background: #018163;
+    padding: 20px;
+    border-radius: 25px;
+    margin-top: 99px;
+}
+.one{
+    border: 2px solid #f8ffe5;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+@media screen and (max-width:750px){
+    .items{
+    width: 19.75rem;
+    }
+    .parent{
+        width: 22.75rem;
+        justify-content: center;
+        margin-top: 60px;
+        height: auto;
+    }
+    .one{
+        height:auto;
+    }
+}
+img.card1{
+    filter:drop-shadow(1px 1px 0 black);
+    filter: brightness(0.8) sepia(1) hue-rotate(90deg) saturate(2);
+    height:110px;
+}
+
+.features li i{
+    margin-right: 10px;
+}
+.read1{
+    font-size: 1.7rem;
+}
+.read2{
+    font-size: 1.1rem;
+    margin: 15px 0 0 0px;  
+    align-items: center;
+    width:260px;
+}
+.read3{
+    font-size: 1.1rem;
+    margin: 5px 0 15px 0px;
+    width:260px;
+}
+.read4{
+    margin:10px 0px 0px 0px;
+    text-align: center;
+    font-size: 0.81rem;
+}
+li{
+    list-style: none;
+    font-size: 0.9rem;
+    margin:5px 0 0px 15px;
+    text-align: left;
+}
+button{
+    height: 45px;
+    width:250px;
+    /* background: linear-gradient(#018163 , #018163 100%  ); */
+    background-color: #f8ffe5;
+    color: #018163;
+    border-radius: 17px;
+    transition: border-radius 0.1s ease-in-out;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+}
+button:hover {
+    /* background: linear-gradient(#04ffc4 , #018163 100%  ); */
+    border-radius: 25px;
+}
+.two button{
+   margin-top: 54px;
+}
+.three button{
+    margin-top: 7px;
+}
+@media screen and (max-width:750px){
+    .three button{
+        margin-top: 22px;
+    }
+}
+footer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    line-height: 32px;
+    background-color:#018163;
+    margin-top: auto;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right: 0;
+}
+@media screen and (max-width:768px){
+    footer{
+        position: inherit;
+        margin-top: 20px;
+        font-size: 60%;
+    }
+} 
+@media screen and (max-width:560px){
+    .content{
+        gap:0rem;
+    }   
+    .items{
+        width:291px;
+        text-align: center;
+        background-color: #018163;
+    }
+    .parent{
+        box-shadow:5px 5px 10px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
+        background: #018163;
+        padding:15px;
+        border-radius: 25px;
+        margin-top: 99px;
+        width: 20rem;
+    }
+    .one{
+        border: 2px solid #f8ffe5;
+        border-radius: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+    
+    }
+    img.card1{
+        height:80px;
+    }
+    .read1{
+        font-size: 1.5rem;
+    }
+    .read2{
+        font-size: 1rem;
+        margin: 15px 0 0 15px;  
+        width:230px;
+    }
+    .read3{
+        font-size: 1rem;
+        margin: 5px 0 15px 15px;
+        width:230px;
+    }
+    .read4{
+        font-size: 0.70rem;
+    }
+    li{
+        list-style: none;
+        font-size: 0.9rem;
+        margin:5px 0 0px 15px;
+        text-align: left;
+    }
+    button{
+        height: 40px;
+        width:210px;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    .two button{
+        margin-top: 14px;
+     }
+     .three button{
+         margin-top: 5px;
+     }
+    .three{
+        height:29rem;
+    }
+}

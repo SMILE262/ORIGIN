@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews Page</title>
+  <link rel="stylesheet" href="reviews.css">
+  <link rel="icon" type="png" href="assets/lotus-logo.png">
+</head>
+
+<body>
+  <section class="reviews-section">
+    <h2>What People Are Saying</h2>
+
+    <div id="reviews-container">
+      <div class="review-card">
+        <p></p>
+        <span></span>
+      </div>
+      <div class="review-card">
+      </div>
+      <!-- More preset reviews -->
+    </div>
+
+    <button id="reviewBtn">Write a Review</button>
+
+    <div id="reviewForm" style="display: none;">
+      <textarea id="reviewText" placeholder="Write your review here..."></textarea>
+      <!-- <input type="text" id="reviewAuthor" placeholder="Your name"> -->
+      <button class="btn2" style="color: #f8ffe5;" onclick="addReview()">Submit</button>
+    </div>
+  </section>
+
+  <script src="reviews.js"></script>
+</body>
+<footer>
+  <p>© 2024 Enlightened Sage. All rights reserved.</p>
+</footer>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2WZ60MQLS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-N2WZ60MQLS');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlightened sage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="png" href="assets/lotus-logo.png">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26"
+                            viewBox="0 96 960 960" width="26" style="margin-top: 10px;">
+                            <path
+                                d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z" />
+                        </svg></a></li>
+                <li><a class="bar bar1" onclick="window.location.href='contact.html'">Contact</a></li>
+                <li><a class="bar" href="Reviews.html">Reviews</a></li>
+                <div class="log">
+                    <button class="log-btn" id="login1" onclick="redirectToLogin()"><i class="fa-solid fa-user-tie"
+                            style="margin-right: 5px;"></i>Log In</button>
+                    <div class="social0">
+                        <a href="https://www.reddit.com/user/sabio_iluminado" target="_blank"><img
+                                class="img-reddit media" src="assets/reddit-logo.svg" alt="reddit"></a>
+                        <a href="https://t.me/transcendental_being" target="_blank"><img class="img-tel media"
+                                src="assets/tele-logo.svg" alt="tele"></a>
+                        <a href="https://www.instagram.com/enlightened.sage" target="_blank"><img
+                                class="img-insta media" src="assets/insta-logo.svg" alt="insta"></a>
+                    </div>
+                </div>
+            </ul>
+            <ul>
+                <li class="ES">Enlightened <img class="img-lotus" src="assets/lotus-logo.png" alt="linkd"> Sage </li>
+                <li class="hideOnMobile items item2"><a onclick="window.location.href='contact.html'">Contact</a></li>
+                <li class="hideOnMobile items item3"><a href="Reviews.html">Reviews</a></li>
+                <li class="menu-button " onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                            height="26" viewBox="0 96 960 960" width="26">
+                            <path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z" />
+                        </svg></a></li>
+                <button class="hideOnMobile" id="login2" onclick="window.location.href='login.html'"><i
+                        class="fa-solid fa-user-tie" style="margin-right: 5px;"></i>Log In</button>
+            </ul>
+        </nav>
+    </header>
+    <main class="hidden">
+        <div class="content">
+            <div class="content-items">
+                <h1 class="cont-item1 cont-item0">Welcome to the</h1>
+                <h1 class="cont-item1 cont-item2">World of </h1>
+                <h1 class="cont-item1">Enlightened Sage</h1>
+                <h1 class="cont-item4">Discover your future with our insightful tarot readings. </h1>
+                <button onclick="window.location.href='booking.html'" class="book-btn">
+                    <h4>Book a reading</h4>
+                </button>
+                <div class="social">
+                    <a href="https://www.reddit.com/user/sabio_iluminado" target="_blank"><img class="img-reddit media"
+                            src="assets/reddit-logo.svg" alt="reddit"></a>
+                    <a href="https://t.me/transcendental_being" target="_blank"><img class="img-tel media"
+                            src="assets/tele-logo.svg" alt="tele"></a>
+                    <a href="https://www.instagram.com/enlightened.sage" target="_blank"><img class="img-insta media"
+                            src="assets/insta-logo.svg" alt="insta"></a>
+                </div>
+            </div>
+            <div class="content-img">
+                <img class="img-sage" src="assets/sage.png" alt="sage">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Enlightened Sage. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            // sidebar.style.display = 'flex'
+            sidebar.classList.toggle('open')
+        }
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            // sidebar.style.display = 'none'
+            sidebar.classList.remove('open')
+        }
+        document.addEventListener('click', function (e)  {
+            const sidebar = document.querySelector('.sidebar')
+            const menuBtn = document.querySelector('.menu-button')
+
+            if (sidebar.classList.contains('open')) {
+                if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)){
+                    sidebar.classList.remove('open')
+                }
+            }
+        })
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>
